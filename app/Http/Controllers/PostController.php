@@ -37,6 +37,10 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = new Post;
+        $post->user_id = 1;
+        $post->title = "Hello";
+        $post->post = "Hello";
+        $post->save();
     }
 
     /**
@@ -45,9 +49,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('posts.show', ['post' => $post]);
     }
 
     /**
