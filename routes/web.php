@@ -30,6 +30,6 @@ Route::get('/posts/{id}', [PostController::class, 'show'])
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('/posts');
 
 require __DIR__ . '/auth.php';
