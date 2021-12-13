@@ -19,8 +19,9 @@
     </head>
     <body class="font-sans antialiased">
         @include('layouts.navbar')
-
-        <h1> Hello </h1>
+        <div class = "container">
+            @yield('content')
+        <div>
 
     </body>
 </html>
