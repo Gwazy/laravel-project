@@ -19,7 +19,7 @@ use App\Http\Controllers\PostController;
 Route::get('/', [PathController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index']);
-
+Route::get('/posts/{id}', [PostController::class, 'show']);
 
 
 Route::get('/dashboard', function () {

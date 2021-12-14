@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -15,10 +15,15 @@ class PostController extends Controller
         return view('posts.index', ['posts' => $posts]);
     }
 
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+
     public function show($id)
     {
         $post = Post::findOrFail($id);
-
         return view('posts.show', ['post' => $post]);
     }
 
