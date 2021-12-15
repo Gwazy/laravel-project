@@ -18,7 +18,50 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        @include('layouts.navbar')
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">Connect</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">New Post</a>
+                  </li>
+                </ul>
+
+                  @auth
+                    <li>
+                        <form action="{{ route('logout') }}" method="get" class="block py-5 px-4 inline">
+                            <button type="submit">{{ auth()->user()->name }}</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="{{ route('logout') }}" method="post" class="block py-5 px-4 inline">
+                            @csrf
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
+                @endauth
+
+                @guest
+                    <li>
+                        <a href="{{ route('login') }}" class="block py-5 px-4">Login</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('register') }}" class="block py-5 px-4">Register</a>
+                    </li>
+                @endguest
+              </div>
+            </div>
+          </nav>
+
+          
         <div class = "container">
             @yield('content')
         <div>

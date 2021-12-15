@@ -18,12 +18,10 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [PathController::class, 'index']);
 
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/{id}', [PostController::class, 'show']);
+Route::get('/posts', [PostController::class, 'index'])->name('posts');
+Route::get('/posts/{id}', [PostController::class, 'show'])->name('post_id');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__ . '/auth.php';
