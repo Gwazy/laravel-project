@@ -15,27 +15,29 @@
     @endguest
 
     @auth
-    <h1> Posts </h1>
-    <div class = "container align-self-center">
-        @if (count($posts) != 0)
-            @foreach($posts as $post) 
-                <div class='well'>
-                    <h2>{{ $post->title }}</h2>
-                    <small>Written by {{ $post->user->name }}</small>
-                    <span><small> on {{ $post->created_at }}</small></span>
+    <div class="container bg-light pt-3"> 
+        <h1 class="text-center mb-5"> Posts </h1>
 
+            @if (count($posts) != 0)
+                @foreach($posts as $post) 
+                    <div class="container border rounded mt-3">
+                        <h2>{{ $post->title }}</h2>
+                        <small>Written by {{ $post->user->name }}</small>
+                        <span><small> on {{ $post->created_at }}</small></span>
+                    </div>
+                @endforeach
+
+                <div class="d-flex justify-content-center mt-5">
+                    {!! $posts->links() !!}
                 </div>
-            @endforeach
-            <div class="d-inline-flex p-2">
-                {{ $posts->links() }}
-            </div>
-        @else
-    <div class = 'center'>
-        <h2>No posts found</h2>
-    </div>
-    @endif
-    @endauth
 
+            @else
+            <div class = 'center'>
+                <h2>No posts found</h2>
+            </div>
+
+        @endif
+        @endauth
 
     </div>
 @endsection

@@ -12,6 +12,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUIyJ" crossorigin="anonymous">
         <!-- Styles -->
         <link rel="stylesheet" href="css/app.css">
+        <style>
+          body {
+            background-color: red;
+          }
+        </style> 
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- Scripts -->
@@ -67,10 +72,6 @@
             </div>
           </nav>
 
-          
-        <div class = "container">
-            @yield('content')
-        <div>
-
+           @yield('content')
     </body>
 </html>
