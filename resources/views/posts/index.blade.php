@@ -4,7 +4,7 @@
 @section('content')
 
     @guest
-    <div class="jumbotron text-center">
+    <div class="container jumbotron text-center mt-5 ">
         <h1>Be Sure To Login</h1>
         <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
         <p class="lead">
@@ -20,10 +20,12 @@
 
             @if (count($posts) != 0)
                 @foreach($posts as $post) 
-                    <div class="container border rounded mt-3">
-                        <h2>{{ $post->title }}</h2>
-                        <small>Written by {{ $post->user->name }}</small>
-                        <span><small> on {{ $post->created_at }}</small></span>
+                    <div class="container border rounded border-4 mt-3">
+                        <a href="{{ route('posts.show', ['id' => $post->id]) }}" class="text-decoration-none text-reset ">
+                            <h2 class="h1">{{ $post->title }}</h2>
+                            <p>{{  \Illuminate\Support\Str::limit($post->post, 150, '...') }} </p>
+                            <small>Written by {{ $post->user->name }} on {{ $post->created_at }}</small>
+                        </a>
                     </div>
                 @endforeach
 

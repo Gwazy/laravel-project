@@ -17,7 +17,7 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
