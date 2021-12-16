@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProfileController extends Controller
 {
-    public function show($id)
+    public function index()
     {
-        $user = User::findOrFail($id);
-        return view('profile.show', ['user' => $user]);
+        $user = User::FindOrFail(Auth::id());
+
+        return view('profile.index', ['user' => $user]);
     }
 }

@@ -43,7 +43,7 @@
                 <ul class="nav navbar-nav navbar-right">
                   @auth
                     <li>
-                        <form action="{{ route('logout') }}" method="get" class="block py-2 px-2 inline">
+                        <form action="{{ route('profile.index') }}" method="get" class="block py-2 px-2 inline">
                             <button type="submit" class="btn btn-primary">Your Profile</button>
                         </form>
                     </li>

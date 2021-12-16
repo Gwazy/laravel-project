@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h1> Profile : {{  $user -> name }}</h1>
-        <div>
-            
-        </div>
+
+    @auth
+    <div class="container bg-light pt-3"> 
+        <h1 class="mb-5">Profile : {{ $user -> name }} </h1>
+
     </div>
+    @endauth
 
 @endsection
