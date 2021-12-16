@@ -26,25 +26,30 @@
               </button>
 
               <div class="collapse navbar-collapse" id="navbarCollapse">
+                
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                  @auth
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">New Post</a>
                   </li>
+                  @endauth
                 </ul>
-
+                
+                
+                <ul class="nav navbar-nav navbar-right">
                   @auth
                     <li>
                         <form action="{{ route('logout') }}" method="get" class="block py-5 px-4 inline">
-                            <button type="submit">{{ auth()->user()->name }}</button>
+                            <button type="submit" class="btn btn-primary">Your Profile</button>
                         </form>
                     </li>
                     <li>
                         <form action="{{ route('logout') }}" method="post" class="block py-5 px-4 inline">
                             @csrf
-                            <button type="submit">Logout</button>
+                            <button type="submit" class="btn btn-primary" >Logout</button>
                         </form>
                     </li>
                 @endauth
@@ -57,6 +62,7 @@
                         <a href="{{ route('register') }}" class="block py-5 px-4">Register</a>
                     </li>
                 @endguest
+                </ul>
               </div>
             </div>
           </nav>
