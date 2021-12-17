@@ -2,22 +2,28 @@
 
 
 @section('content')
-    <h1>Create Post</h1>
-    {{-- {!! Form::open(['action' => '[PostsController::class, 'create']', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-        <div class="form-group">
-            {{Form::label('title', 'Title')}}
-            {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title'])}}
-        </div>
-        <div class="form-group">
-            {{Form::label('body', 'Body')}}
-            {{Form::textarea('body', '', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
-        </div>
-        <div class="form-group">
-            {{Form::file('cover_image')}}
-        </div>
-        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
-    {!! Form::close() !!} --}}
+    <div class="container bg-light pt-3"> 
+        <h1 class="text-center mb-5"> Create</h1>
 
-    
+        <form method="POST" action="">
+            @csrf 
+            <div class="form-group">
+                <p>Title</p>
+                <input type="text" name="title" class="form-control" placeholder="Enter title"
+                    value="{{ old('title') }}">
+            </div>
+            <div class="form-group">
+                <p>Body</p>
+                <input type="textarea" name="description" class="form-control" placeholder="Enter description"
+                    value="{{ old('description') }}">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Attach image to your post</label>
+                <input type="file" name="image" class="form-control-file" value="{{ old('image') }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="btn btn-danger" href="{{ route('home') }}">Cancel</a>
+        </form>
+    </div>
 
 @endsection
