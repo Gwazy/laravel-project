@@ -19,12 +19,19 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
-Route::get('/posts/create', [PostController::class, 'create'])->name('create');
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/create', [PostController::class, 'create'])
+    ->middleware('auth')
+    ->name('create');
+Route::get('/posts', [PostController::class, 'index'])
+    ->middleware('auth');
+Route::get('/posts/{id}', [PostController::class, 'show'])
+    ->middleware('auth')
+    ->name('posts.show');
 
 
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('/profile', [ProfileController::class, 'index'])
+    ->middleware('auth')
+    ->name('profile.index');
 
 
 
