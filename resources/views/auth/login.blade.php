@@ -1,3 +1,8 @@
+@extends('layouts.app')
+
+
+@section('content')
+<div class="container text-center">
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -52,3 +57,5 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+</div>
+@endsection

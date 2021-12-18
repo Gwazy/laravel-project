@@ -15,21 +15,17 @@
     </div>
 @endif
 
-        <form method="POST" action="{{ route('posts.store') }}">
+        <form method="POST" action="{{ route('posts.update', ['id' => $post->id]) }}">
             @csrf 
             <div class="form-group">
                 <p>Title</p>
                 <input type="text" name="title" class="form-control" placeholder="Enter title"
-                    value="{{ old('title') }}">
+                    value="{{ $post->title }}">
             </div>
             <div class="form-group">
                 <p>Body</p>
                 <input type="textarea" name="post" class="form-control" placeholder="Enter description"
-                    value="{{ old('post') }}">
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Attach image to your post</label>
-                <input type="file" name="image" class="form-control-file" value="{{ old('image') }}">
+                    value="{{ $post->post }}">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <a class="btn btn-danger" href="{{ route('home') }}">Cancel</a>

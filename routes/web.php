@@ -19,6 +19,17 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
+
+//  Posts
+Route::get('/posts/edit/{id}', [PostController::class, 'edit'])
+    ->middleware(('auth'))
+    ->name('posts.edit');
+Route::post('/posts/edit/{id}', [PostController::class, 'update'])
+    ->middleware('auth')
+    ->name('posts.update');
+
+
+
 Route::get('/posts/create', [PostController::class, 'create'])
     ->middleware('auth')
     ->name('create');
@@ -27,8 +38,14 @@ Route::get('/posts', [PostController::class, 'index'])
 Route::get('/posts/{id}', [PostController::class, 'show'])
     ->middleware('auth')
     ->name('posts.show');
+Route::post('posts', [PostController::class, 'store'])
+    ->middleware('auth')
+    ->name('posts.store');
+//  Comments
 
 
+
+//  Posts
 Route::get('/profile', [ProfileController::class, 'index'])
     ->middleware('auth')
     ->name('profile.index');

@@ -9,7 +9,9 @@
                 <p>{{  $post->post  }} </p>
             </div>
         
-            <div></div>
+            <div>
+                <button type="submit" class="btn btn-primary">Edit Post</button>
+            </div>
 
 
             <div class="container">

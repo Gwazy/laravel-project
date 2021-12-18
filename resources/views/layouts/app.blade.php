@@ -57,10 +57,7 @@
 
                 @guest
                     <li>
-                        <a href="{{ route('login') }}" class="block py-3 px-4">Login</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('register') }}" class="block py-3 px-4">Register</a>
+                        <a href="" class="block py-3 px-4"></a>
                     </li>
                 @endguest
                 </ul>
