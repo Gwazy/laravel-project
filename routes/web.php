@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PathController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 
@@ -28,8 +28,6 @@ Route::post('/posts/edit/{id}', [PostController::class, 'update'])
     ->middleware('auth')
     ->name('posts.update');
 
-
-
 Route::get('/posts/create', [PostController::class, 'create'])
     ->middleware('auth')
     ->name('create');
@@ -43,9 +41,25 @@ Route::post('posts', [PostController::class, 'store'])
     ->name('posts.store');
 //  Comments
 
+Route::get('/comment/edit/{id}', [CommentController::class, 'edit'])
+    ->middleware('auth')
+    ->name('comment.edit');
+
+Route::post('/comment/edit/{id}', [CommentController::class, 'update'])
+    ->middleware('auth')
+    ->name('comment.update');
 
 
-//  Posts
+
+Route::post('/comment/store/{id}', [CommentController::class, 'store'])
+    ->middleware('auth')
+    ->name('comment.store');
+
+
+
+
+
+//  Profile
 Route::get('/profile', [ProfileController::class, 'index'])
     ->middleware('auth')
     ->name('profile.index');

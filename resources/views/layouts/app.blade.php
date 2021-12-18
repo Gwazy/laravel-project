@@ -44,7 +44,7 @@
                   @auth
                     <li>
                         <form action="{{ route('profile.index') }}" method="get" class="block py-2 px-2 inline">
-                            <button type="submit" class="btn btn-primary">Your Profile</button>
+                            <button type="submit" class="btn btn-primary">{{ Auth::User()->name }}</button>
                         </form>
                     </li>
                     <li>
