@@ -6,6 +6,8 @@ use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CommentCreated;
 
 class CommentController extends Controller
 {
@@ -17,6 +19,8 @@ class CommentController extends Controller
         ]));
 
         $post = Post::findOrFail($id);
+
+        Mail::to($post->user->email)->send(new CommentCreated());
 
         $comment = new Comment;
         $comment->user_id = Auth::id();
