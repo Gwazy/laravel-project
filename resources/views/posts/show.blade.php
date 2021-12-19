@@ -3,22 +3,28 @@
 @section('content')
 
     <div class="container bg-light pt-3"> 
+        @if ($post->image) 
+            <img src="{{ asset($post->image->image) }}" class="card-img-top">
+        @endif
         <h1 class="text-center mb-3"> {{ $post->title }} </h1>
         <p class="text-center mb-2">Written by {{ $post->user->name }} on {{ $post->created_at }}</p>
-            <div class="container border rounded border-4 mt-3">
+            <div class="container border-4 mt-3">
                 <p>{{  $post->post  }} </p>
             </div>
         
-        @if ($post->user->id ==  Auth::User()->id)
+        <div class="container d-flex justify-content-end">
+            @if ($post->user->id == Auth::User()->id)
+                <div>
+                    <button type="submit" class="btn btn-primary">Edit Post</button>
+                </div>
+            @endif
+
+            @if ($post->user->id == Auth::User()->id || Auth::User()->isAdmin)
             <div>
-                <button type="submit" class="btn btn-primary">Edit Post</button>
+                <button type="submit" class="btn btn-primary">Delete post</button>
             </div>
-        @endif
-        @if ($post->user->id ==  Auth::User()->id || Auth::User()->isAdmin)
-        <div>
-            <button type="submit" class="btn btn-primary">Delete post</button>
+            @endif
         </div>
-        @endif
 
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -39,7 +45,10 @@
                     <input type="text" name="comment" class="form-control" placeholder="Enter comment"
                         value="{{ old('comment') }}">
                 </div>
+
+                <div class="container d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary">Create Comment</button>
+                </div>
             </form>
         </div>
 
@@ -52,17 +61,20 @@
                                 <small>Written by {{ $comment->user->name }}</small>
                                 <span><small> on {{ $comment->created_at }}</small></span>
 
-                                @if ($comment->user->id ==  Auth::User()->id)
-                                <div>
-                                    <button type="submit" class="btn btn-primary">Edit</button>
-                                </div>
-                                @endif
 
-                                @if ($post->user->id ==  Auth::User()->id || Auth::User()->isAdmin)
-                                <div>
-                                    <button type="submit" class="btn btn-primary">Delete post</button>
+                                <div class="container d-flex justify-content-end">
+                                    @if ($comment->user->id ==  Auth::User()->id)
+                                    <div>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                    </div>
+                                    @endif
+
+                                    @if ($post->user->id ==  Auth::User()->id || Auth::User()->isAdmin)
+                                    <div>
+                                        <button type="submit" class="btn btn-primary">Delete post</button>
+                                    </div>
+                                    @endif
                                 </div>
-                                @endif
                             </div>
                         @endforeach
                     @else

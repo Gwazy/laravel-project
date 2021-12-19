@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Comment;
+use App\Http\Controllers\ImageController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,9 +38,11 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
+
         $request->validate(([
             'title' => 'required|max:255',
             'post' => 'required',
+            'image' => 'nullable|image|mimes:jpg,png,jpgeg|max:5000',
         ]));
 
         $post = new Post;
@@ -47,6 +50,12 @@ class PostController extends Controller
         $post->title = $request['title'];
         $post->post = $request['post'];
         $post->save();
+
+        if ($request->hasFile('image')) {
+
+            $image_controller = new ImageController;
+            $image_controller->store($request['image'], $post->id);
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }
@@ -58,6 +67,8 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'post' => 'required',
         ]));
+
+
 
         $post = Post::findOrFail($id);
         $post->user_id = Auth::id();
