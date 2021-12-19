@@ -14,6 +14,11 @@
                 <button type="submit" class="btn btn-primary">Edit Post</button>
             </div>
         @endif
+        @if ($post->user->id ==  Auth::User()->id || Auth::User()->isAdmin)
+        <div>
+            <button type="submit" class="btn btn-primary">Delete post</button>
+        </div>
+        @endif
 
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -51,7 +56,13 @@
                                 <div>
                                     <button type="submit" class="btn btn-primary">Edit</button>
                                 </div>
-                            @endif
+                                @endif
+
+                                @if ($post->user->id ==  Auth::User()->id || Auth::User()->isAdmin)
+                                <div>
+                                    <button type="submit" class="btn btn-primary">Delete post</button>
+                                </div>
+                                @endif
                             </div>
                         @endforeach
                     @else
