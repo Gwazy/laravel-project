@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FunnyQuoteController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\JokeController;
-use App\Services\Joke;
+
+
 
 
 
@@ -21,7 +22,7 @@ use App\Services\Joke;
 */
 
 
-Route::get('/Dog', [JokeController::class, 'index'])->name('Dog');
+Route::get('/funnyquote', [FunnyQuoteController::class, 'index'])->name('funnyquote');
 
 
 

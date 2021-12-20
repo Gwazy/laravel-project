@@ -2,11 +2,10 @@
 
 @section('content')
 
-
+    @auth
     <div class="container bg-light pt-3"> 
-        <h1 class="mb-5">Random Dog Breed: {{ $dog }} </h1>
-
+        <p>Hello</p>
     </div>
-
+    @endauth
 
 @endsection

@@ -4,8 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
-use App\Services\Dog;
-
+use App\Services\FunnyQuote;
 
 Paginator::useBootstrap();
 
@@ -18,8 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        app()->singleton(Dog::class, function ($app) {
-            return new Dog('7307c496-8b33-4bcf-bdc4-7de167dab60b');
+        app()->singleton(FunnyQuote::class, function ($app) {
+            return new FunnyQuote('d157a5351f976de66634a41c9d42def9');
         });
     }
 
