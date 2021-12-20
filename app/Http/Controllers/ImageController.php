@@ -16,7 +16,6 @@ class ImageController extends Controller
         $image_path = explode('public', $image_path);
         $image_path = '/storage' . $image_path[1];
 
-
         $image = new Image;
         $image->image = $image_path;
         $image->post_id = $id;

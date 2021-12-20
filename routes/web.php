@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\JokeController;
+use App\Services\Joke;
+
 
 
 /*
@@ -16,6 +19,11 @@ use App\Http\Controllers\ProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('/Dog', [JokeController::class, 'index'])->name('Dog');
+
+
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
