@@ -4,7 +4,8 @@
 
     @auth
     <div class="container bg-light pt-3"> 
-        <p>Hello</p>
+        <p>{{ $author }}</p>
+        <p>{{ $body }}</p>
     </div>
     @endauth
 

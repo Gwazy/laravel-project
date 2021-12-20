@@ -6,7 +6,10 @@
         @if ($post->image) 
             <img src="{{ asset($post->image->image) }}" class="card-img-top">
         @endif
+
+    
         <h1 class="text-center mb-3"> {{ $post->title }} </h1>
+
         <p class="text-center mb-2">Written by {{ $post->user->name }} on {{ $post->created_at }}</p>
             <div class="container border-4 mt-3">
                 <p>{{  $post->post  }} </p>
@@ -15,13 +18,13 @@
         <div class="container d-flex justify-content-end">
             @if ($post->user->id == Auth::User()->id)
                 <div>
-                    <button type="submit" class="btn btn-primary">Edit Post</button>
+                    <a href="{{ route('posts.edit', ['id' => $post->id]) }}" class="btn btn-primary">Edit Post</a>
                 </div>
             @endif
 
             @if ($post->user->id == Auth::User()->id || Auth::User()->isAdmin)
             <div>
-                <button type="submit" class="btn btn-primary">Delete post</button>
+                <a href="/" class="btn btn-primary">Delete post</a>
             </div>
             @endif
         </div>
@@ -65,7 +68,7 @@
                                 <div class="container d-flex justify-content-end">
                                     @if ($comment->user->id ==  Auth::User()->id)
                                     <div>
-                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                        <a href="{{ route('comment.edit', ['id' => $comment->id]) }}" class="btn btn-primary">Edit Comment</a>
                                     </div>
                                     @endif
 

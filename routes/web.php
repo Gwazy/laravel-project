@@ -33,6 +33,7 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/posts/edit/{id}', [PostController::class, 'edit'])
     ->middleware(('auth'))
     ->name('posts.edit');
+
 Route::post('/posts/edit/{id}', [PostController::class, 'update'])
     ->middleware('auth')
     ->name('posts.update');
@@ -40,8 +41,10 @@ Route::post('/posts/edit/{id}', [PostController::class, 'update'])
 Route::get('/posts/create', [PostController::class, 'create'])
     ->middleware('auth')
     ->name('create');
+
 Route::get('/posts', [PostController::class, 'index'])
     ->middleware('auth');
+
 Route::get('/posts/{id}', [PostController::class, 'show'])
     ->middleware('auth')
     ->name('posts.show');
