@@ -44,7 +44,12 @@ class CommentController extends Controller
         ]));
 
         $comment = Comment::findOrFail($id);
-        $comment->user_id = Auth::id();
+
+        if (Auth::id() != $comment->user_id) {
+            return "You do not have access to this";
+        }
+
+        $comment->user_id = $comment->user_id;
         $comment->post_id = $comment->post_id;
         $comment->comment = $request['comment'];
         $comment->save();
