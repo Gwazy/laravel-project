@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CommentCreated;
+use App\Providers\RouteServiceProvider;
 
 class CommentController extends Controller
 {
@@ -55,5 +56,16 @@ class CommentController extends Controller
         $comment->save();
 
         return redirect()->route('posts.show', ['id' => $comment->post_id]);
+    }
+
+    public function destroy($id)
+    {
+        $comment = Comment::findOrFail($id);
+
+        if ($comment->user->id == Auth::id() || Auth::user()->isAdmin) {
+            $comment->delete();
+            return redirect(RouteServiceProvider::HOME);
+        }
+        return redirect(RouteServiceProvider::HOME);
     }
 }
