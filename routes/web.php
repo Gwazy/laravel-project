@@ -22,13 +22,13 @@ use App\Http\Controllers\ProfileController;
 */
 
 
-Route::get('/funnyquote', [FunnyQuoteController::class, 'index'])->name('funnyquote');
+
 
 
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
-
+Route::get('/quote', [FunnyQuoteController::class, 'index'])->name('funnyquote')->middleware('auth');
 //  Posts
 Route::get('/posts/edit/{id}', [PostController::class, 'edit'])
     ->middleware(('auth'))
@@ -52,6 +52,10 @@ Route::post('posts', [PostController::class, 'store'])
     ->middleware('auth')
     ->name('posts.store');
 
+Route::get('posts/destroy/{id}', [PostController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('posts.destory');
+
 //  Comments
 
 Route::get('/comment/edit/{id}', [CommentController::class, 'edit'])
@@ -61,8 +65,6 @@ Route::get('/comment/edit/{id}', [CommentController::class, 'edit'])
 Route::post('/comment/edit/{id}', [CommentController::class, 'update'])
     ->middleware('auth')
     ->name('comment.update');
-
-
 
 Route::post('/comment/store/{id}', [CommentController::class, 'store'])
     ->middleware('auth')

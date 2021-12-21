@@ -86,7 +86,7 @@ class PostController extends Controller
 
     public function destroy($id)
     {
-        $post = Comment::findOrFail($id);
+        $post = Post::findOrFail($id);
 
         if ($post->user->id == Auth::id() || Auth::user()->isAdmin) {
             $post->delete();

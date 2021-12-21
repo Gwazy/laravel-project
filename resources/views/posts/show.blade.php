@@ -23,7 +23,7 @@
 
             @if ($post->user->id == Auth::User()->id || Auth::User()->isAdmin)
             <div>
-                <a href="/" class="btn btn-primary">Delete post</a>
+                <a href="{{  route('posts.destory', ['id' => $post->id]) }} " class="btn btn-primary">Delete post</a>
             </div>
             @endif
         </div>
