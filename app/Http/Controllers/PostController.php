@@ -68,8 +68,6 @@ class PostController extends Controller
             'post' => 'required',
         ]));
 
-
-
         $post = Post::findOrFail($id);
         $post->user_id = Auth::id();
         $post->title = $request['title'];
@@ -86,8 +84,14 @@ class PostController extends Controller
         return view('posts.edit', ['post' => $post]);
     }
 
-    public function destory($id)
+    public function destroy($id)
     {
-        $post = Post::findOrFail($id);
+        $post = Comment::findOrFail($id);
+
+        if ($post->user->id == Auth::id() || Auth::user()->isAdmin) {
+            $post->delete();
+            return redirect(RouteServiceProvider::HOME);
+        }
+        return redirect(RouteServiceProvider::HOME);
     }
 }
