@@ -8,7 +8,7 @@
             <h1 class="text-center mb-3"> Funny Quote </h1>
 
             <p class="text-center mb-2">Written by {{ $author }}</p>
-                <div class="container border-4 mt-3">
+                <div class="container border-4 mt-3 pb-5">
                     <p class="text-center">{{  $body   }} </p>
                 </div>
         @endif
@@ -17,7 +17,7 @@
             <h1 class="text-center mb-3 pt-5"> Winston Churchill Quote </h1>
 
             <p class="text-center mb-2">Written by {{ $body2 }}</p>
-                <div class="container border-4 mt-3 ">
+                <div class="container border-4 mt-3 pb-5 ">
                     <p class="text-center">{{  $author2   }} </p>
                 </div>
         @endif
