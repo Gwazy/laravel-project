@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Group;
+use Illuminate\Support\Facades\Auth;
 
 
 class User extends Authenticatable
@@ -45,6 +46,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    public function getGroups()
+    {
+        $array = array();
+
+        $user = User::FindOrFail(Auth::id());
+        for ($i = 0; $i < Group::count(); $i++) {
+            if ($user->group[$i]) {
+                array_push($array, $user->group[$i]->name);
+            }
+        }
+
+
+        return $array;
+    }
 
     public function post()
     {

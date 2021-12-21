@@ -29,6 +29,6 @@ class DatabaseSeeder extends Seeder
         $user1->group()->attach($group2);
         $user2->group()->attach($group1);
 
-        echo ($user1->group[1]->name);
+        echo ($user1->group[0]->name);
     }
 }
