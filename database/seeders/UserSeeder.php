@@ -15,15 +15,22 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = new User;
-        $user->name = "James (Admin)";
+        $user->name = "Lucas (Admin)";
         $user->email = "Admin@gmail.com";
         $user->password = bcrypt("a");
         $user->isAdmin = 1;
         $user->save();
 
         $user = new User;
-        $user->name = "James (User)";
+        $user->name = "Ash (User)";
         $user->email = "User@gmail.com";
+        $user->password = bcrypt("a");
+        $user->isAdmin = 0;
+        $user->save();
+
+        $user = new User;
+        $user->name = "L (User no groups)";
+        $user->email = "L@gmail.com";
         $user->password = bcrypt("a");
         $user->isAdmin = 0;
         $user->save();

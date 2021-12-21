@@ -21,7 +21,12 @@
                     <p class="text-center">{{  $author2   }} </p>
                 </div>
         @endif
+        
+        @if(count(Auth::User()->getGroups()) == 0)
+            <h1 class="text-center mb-3 pt-5 pb-5"> No Quotes! Check back later! </h1>
 
+        @endif
+    </div>
     @endauth
 
 @endsection
