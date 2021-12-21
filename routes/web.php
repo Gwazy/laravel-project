@@ -52,9 +52,9 @@ Route::post('posts', [PostController::class, 'store'])
     ->middleware('auth')
     ->name('posts.store');
 
-Route::get('posts/destroy/{id}', [PostController::class, 'destroy'])
+Route::get('/posts/destroy/{id}', [PostController::class, 'destroy'])
     ->middleware('auth')
-    ->name('posts.destory');
+    ->name('posts.destroy');
 
 //  Comments
 
@@ -69,6 +69,10 @@ Route::post('/comment/edit/{id}', [CommentController::class, 'update'])
 Route::post('/comment/store/{id}', [CommentController::class, 'store'])
     ->middleware('auth')
     ->name('comment.store');
+
+Route::get('/comment/destroy/{id}', [CommentController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('comment.destroy');
 
 
 

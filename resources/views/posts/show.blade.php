@@ -23,7 +23,7 @@
 
             @if ($post->user->id == Auth::User()->id || Auth::User()->isAdmin)
             <div>
-                <a href="{{  route('posts.destory', ['id' => $post->id]) }} " class="btn btn-primary">Delete post</a>
+                <a href="{{  route('posts.destroy', ['id' => $post->id]) }} " class="btn btn-primary">Delete post</a>
             </div>
             @endif
         </div>
@@ -73,7 +73,7 @@
 
                                     @if ($post->user->id ==  Auth::User()->id || Auth::User()->isAdmin)
                                     <div>
-                                        <button type="submit" class="btn btn-primary">Delete post</button>
+                                        <a href="{{  route('comment.destroy', ['id' => $comment->id]) }} " class="btn btn-primary">Delete Comment</a>
                                     </div>
                                     @endif
                                 </div>
