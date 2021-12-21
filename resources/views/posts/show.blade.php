@@ -10,7 +10,7 @@
     
         <h1 class="text-center mb-3"> {{ $post->title }} </h1>
 
-        <p class="text-center mb-2">Written by {{ $post->user->name }} on {{ $post->created_at }}</p>
+        <p class="text-center mb-5">Written by {{ $post->user->name }} on {{ $post->created_at }}</p>
             <div class="container border-4 mt-3">
                 <p class="text-center">{{  $post->post  }} </p>
             </div>
