@@ -5,9 +5,9 @@
 
     @guest
     <div class="container jumbotron text-center mt-5 ">
-        <h1>Be Sure To Login</h1>
-        <p class="lead">Welcome to Work Speak! In order to interact with our website, be sure to register and to login! Speak the truth!</p>
-        <p class="lead">
+        <h1><strong>Welcome to Work Speak!</strong></h1>
+        <p class="text-center pb-5 pt-4">Welcome to Work Speak! In order to interact with our website, be sure to register and to login! Speak the truth!</p>
+
         <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
         <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
         </p>
