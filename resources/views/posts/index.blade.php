@@ -20,11 +20,12 @@
 
             @if (count($posts) != 0)
                 @foreach($posts as $post) 
-                    <div class="container border rounded border-4 mt-3">
+                    <div class="container border border-5 rounded  mt-3">
                         <a href="{{ route('posts.show', ['id' => $post->id]) }}" class="text-decoration-none text-reset ">
                             <h2 class="h1">{{ $post->title }}</h2>
                             <p>{{  \Illuminate\Support\Str::limit($post->post, 150, '...') }} </p>
                             <small>Written by {{ $post->user->name }} on {{ $post->created_at }}</small>
+
                         </a>
                     </div>
                 @endforeach

@@ -51,6 +51,7 @@ Route::get('/posts/{id}', [PostController::class, 'show'])
 Route::post('posts', [PostController::class, 'store'])
     ->middleware('auth')
     ->name('posts.store');
+
 //  Comments
 
 Route::get('/comment/edit/{id}', [CommentController::class, 'edit'])

@@ -39,7 +39,6 @@
                   @endauth
                 </ul>
                 
-                
                 <ul class="nav navbar-nav navbar-right">
                   @auth
                     <li>
@@ -65,6 +64,8 @@
             </div>
           </nav>
 
-           @yield('content')
+          <div class ="container bg-light pt-3 ">
+            @yield('content')
+          </div>
     </body>
 </html>
