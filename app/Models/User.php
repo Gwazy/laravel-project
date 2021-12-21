@@ -11,6 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Group;
 use Illuminate\Support\Facades\Auth;
 
+use Exception;
 
 class User extends Authenticatable
 {
@@ -52,9 +53,14 @@ class User extends Authenticatable
         $array = array();
 
         $user = User::FindOrFail(Auth::id());
+
         for ($i = 0; $i < Group::count(); $i++) {
-            if ($user->group[$i]) {
-                array_push($array, $user->group[$i]->name);
+            try {
+                if ($user->group[$i]) {
+                    array_push($array, $user->group[$i]->name);
+                }
+            } catch (Exception $e) {
+                return $array;
             }
         }
 

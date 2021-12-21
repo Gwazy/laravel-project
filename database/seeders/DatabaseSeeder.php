@@ -30,5 +30,6 @@ class DatabaseSeeder extends Seeder
         $user2->group()->attach($group1);
 
         echo ($user1->group[0]->name);
+        echo ($user2->group[0]->name);
     }
 }
