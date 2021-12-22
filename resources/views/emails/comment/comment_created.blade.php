@@ -3,8 +3,8 @@
 
 You have recieved a comment on your post!
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => route('posts.show', ['id' => $post->id])])
+View Post
 @endcomponent
 
 Thanks,<br>

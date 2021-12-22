@@ -21,7 +21,7 @@ class CommentController extends Controller
 
         $post = Post::findOrFail($id);
 
-        Mail::to($post->user->email)->send(new CommentCreated());
+        Mail::to($post->user->email)->send(new CommentCreated($post));
 
         $comment = new Comment;
         $comment->user_id = Auth::id();
