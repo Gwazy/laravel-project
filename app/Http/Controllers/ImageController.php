@@ -13,9 +13,8 @@ class ImageController extends Controller
     public function store($image, $id)
     {
         $image_path = $image->store('/public/images');
-        $image_path = explode('public', $image_path);
+        $image_path = explode('public/images', $image_path);
         $image_path = $image_path[1];
-        $image_path = '/storage' . $image_path;
 
         $image = new Image;
         $image->image = $image_path;

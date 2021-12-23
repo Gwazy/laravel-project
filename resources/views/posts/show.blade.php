@@ -4,7 +4,7 @@
 
     <div class="container bg-light pt-3 m-auto  "> 
         @if ($post->image) 
-            <img src="{{ asset($post->image->image) }}" class="img-thumbnail rounded mx-auto d-block ">
+            <img  class="img-thumbnail rounded mx-auto d-block " src="/storage/images/{{ $post->image->image }}">
         @endif
 
     
