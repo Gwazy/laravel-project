@@ -14,10 +14,10 @@ class ImageController extends Controller
     {
         $image_path = $image->store('/public/images');
         $image_path = explode('public/images', $image_path);
-        $image_path = $image_path[1];
+
 
         $image = new Image;
-        $image->image = $image_path;
+        $image->image = $image_path[1];
         $image->post_id = $id;
         $image->save();
 
